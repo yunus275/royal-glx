@@ -1,17 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-  // Vercel handles the base path automatically, so we defaults it to "/"
   base: "/",
   plugins: [
-    react()
+    react(),
+    tailwindcss() // This links Vite to your Tailwind v4 styles!
   ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      // Keeping your attached assets alias pointing to your local folder
       "@assets": path.resolve(__dirname, "./public"), 
     },
     dedupe: ["react", "react-dom"],
