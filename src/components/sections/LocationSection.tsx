@@ -4,10 +4,10 @@ import { useLang } from "@/contexts/language-context";
 
 const ADDRESS_AR = "السنك، خلف الاتصالات، فرع ميثم أبو الكص، بغداد، العراق";
 const PHONES = ["07811108936", "07902621447", "07705941268", "07505149156"];
-const LAT = 33.33224105834961;
-const LNG = 44.40290832519531;
+const LAT = 33.3319597;
+const LNG = 44.4029265;
 const MAPS_EMBED = `https://maps.google.com/maps?q=${LAT},${LNG}&z=17&hl=en&output=embed`;
-const MAPS_LINK  = `https://maps.google.com/maps?q=${LAT},${LNG}&z=17&hl=en`;
+const MAPS_LINK  = "https://maps.app.goo.gl/Xp78rc5Rs8oEoEWZ9";
 
 export default function LocationSection() {
   const { t } = useLang();

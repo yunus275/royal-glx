@@ -19,9 +19,9 @@ export default function Navbar() {
         transition={{ type: "spring", stiffness: 300, damping: 28 }}
         className="w-full relative"
         style={{
-          background: "rgba(10, 10, 16, 0.78)",
-          backdropFilter: "blur(40px) saturate(180%)",
-          WebkitBackdropFilter: "blur(40px) saturate(180%)",
+          background: "rgba(10, 10, 16, 0.85)",
+          backdropFilter: "blur(18px) saturate(160%)",
+          WebkitBackdropFilter: "blur(18px) saturate(160%)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
           boxShadow: "0 4px 32px rgba(0,0,0,0.3)",
         }}
@@ -71,8 +71,9 @@ export default function Navbar() {
               border: `1px solid ${settingsOpen ? "hsl(var(--primary)/0.45)" : "rgba(255,255,255,0.1)"}`,
               color: settingsOpen ? "hsl(var(--primary))" : "rgba(255,255,255,0.6)",
             }}
-            whileTap={{ scale: 0.9 }}
-            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.94 }}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 420, damping: 32 }}
             data-testid="button-settings"
           >
             <motion.div

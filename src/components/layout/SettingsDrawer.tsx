@@ -5,7 +5,7 @@ import { useLang, type Lang } from "@/contexts/language-context";
 
 const langOptions: { code: Lang; label: string; native: string }[] = [
   { code: "en", label: "English",  native: "EN" },
-  { code: "ar", label: "العربية",  native: "عر" },
+  { code: "ar", label: "العربية",  native: "عربي" },
   { code: "zh", label: "中文",     native: "中" },
 ];
 
@@ -59,9 +59,9 @@ export default function SettingsDrawer({ open, onClose }: Props) {
             transition={{ type: "spring", stiffness: 380, damping: 28 }}
             style={{
               transformOrigin: "top center",
-              background: "rgba(10, 10, 16, 0.88)",
-              backdropFilter: "blur(52px) saturate(200%)",
-              WebkitBackdropFilter: "blur(52px) saturate(200%)",
+              background: "rgba(10, 10, 16, 0.92)",
+              backdropFilter: "blur(20px) saturate(170%)",
+              WebkitBackdropFilter: "blur(20px) saturate(170%)",
               border: "1px solid rgba(255,255,255,0.08)",
               borderTop: "none",
               boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
@@ -75,7 +75,8 @@ export default function SettingsDrawer({ open, onClose }: Props) {
                 onClick={onClose}
                 className="h-7 w-7 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground"
                 style={{ background: "rgba(255,255,255,0.06)" }}
-                whileTap={{ scale: 0.85 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 420, damping: 32 }}
               >
                 <X className="h-3.5 w-3.5" />
               </motion.button>
@@ -97,7 +98,8 @@ export default function SettingsDrawer({ open, onClose }: Props) {
                       background: lang === l.code ? undefined : "rgba(255,255,255,0.04)",
                       border: `1px solid ${lang === l.code ? "hsl(var(--primary)/0.5)" : "rgba(255,255,255,0.06)"}`,
                     }}
-                    whileTap={{ scale: 0.92 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 420, damping: 32 }}
                     data-testid={`lang-${l.code}`}
                   >
                     {lang === l.code && (
@@ -168,7 +170,8 @@ export default function SettingsDrawer({ open, onClose }: Props) {
                       background: theme === mode ? undefined : "rgba(255,255,255,0.04)",
                       border: `1px solid ${theme === mode ? "hsl(var(--primary)/0.5)" : "rgba(255,255,255,0.06)"}`,
                     }}
-                    whileTap={{ scale: 0.92 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 420, damping: 32 }}
                     data-testid={`button-theme-${mode}`}
                   >
                     {theme === mode && (
