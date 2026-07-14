@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, type PanInfo } from "framer-motion";
+import { motion } from "framer-motion";
 import { Home, MapPin, Phone } from "lucide-react";
 import { useLang } from "@/contexts/language-context";
 
@@ -33,20 +33,6 @@ export default function MobileBottomNav() {
     }
   };
 
-  // iOS-style swipe: dragging the nav bar left/right (like swiping along the
-  // home indicator to switch apps) moves between tabs instead of requiring a tap.
-  const handleDragEnd = (_: unknown, info: PanInfo) => {
-    const SWIPE_THRESHOLD = 40;
-    const currentIndex = tabs.findIndex((tb) => tb.id === active);
-    if (info.offset.x <= -SWIPE_THRESHOLD && currentIndex < tabs.length - 1) {
-      const next = tabs[currentIndex + 1];
-      go(next.id, next.scrollTo);
-    } else if (info.offset.x >= SWIPE_THRESHOLD && currentIndex > 0) {
-      const prev = tabs[currentIndex - 1];
-      go(prev.id, prev.scrollTo);
-    }
-  };
-
   return (
     <div className="md:hidden fixed bottom-5 left-4 right-4 z-50 flex justify-center">
       <motion.nav
@@ -62,21 +48,13 @@ export default function MobileBottomNav() {
           boxShadow: "0 16px 48px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.05) inset",
           borderRadius: "28px",
           padding: "6px",
-          touchAction: "pan-y",
         }}
       >
-        {/* Swipe handle row — drag left/right to switch tabs, like swiping the iOS home indicator */}
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
           className="flex items-center"
-          drag="x"
-          dragDirectionLock
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.25}
-          onDragEnd={handleDragEnd}
-          whileDrag={{ scale: 0.98 }}
         >
           {tabs.map((tab) => {
             const Icon = tab.icon;
