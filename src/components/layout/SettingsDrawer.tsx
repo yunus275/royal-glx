@@ -54,9 +54,9 @@ export default function SettingsDrawer({ open, onClose }: Props) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="settings-title"
-            initial={{ opacity: 0, y: 18, scale: 0.94 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.96 }}
+            initial={{ opacity: 0, x: "-50%", y: "-47%", scale: 0.94 }}
+            animate={{ opacity: 1, x: "-50%", y: "-50%", scale: 1 }}
+            exit={{ opacity: 0, x: "-50%", y: "-50%", scale: 0.96 }}
             transition={{ type: "spring", stiffness: 360, damping: 30 }}
           >
             <div className="royal-settings-head">

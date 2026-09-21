@@ -8,7 +8,7 @@ const INSTAGRAM = "https://www.instagram.com/royal.glx/";
 const PHONES = ["07811108936", "07902621447", "07705941268", "07505149156"];
 
 const contacts = [
-  { label: "WhatsApp", href: WHATSAPP, icon: MessageCircle, text: "0781 110 8936", tone: "whatsapp" },
+  { label: "WhatsApp", href: WHATSAPP, icon: MessageCircle, text: "0781 110 8936 · 0790 262 1447", tone: "whatsapp" },
   { label: "Instagram", href: INSTAGRAM, icon: Instagram, text: "@royal.glx", tone: "instagram" },
   { label: "Facebook", href: FACEBOOK, icon: Facebook, text: "ROYAL / رويال", tone: "facebook" },
 ];
@@ -79,7 +79,7 @@ export default function ContactSection() {
           >
             <span className="royal-detail-label"><MapPin />{t.findUs}</span>
             <div className="royal-phone-list">
-              {PHONES.slice(0, 2).map((phone) => <a key={phone} href={`tel:${phone}`}>{phone}</a>)}
+              {PHONES.map((phone) => <a key={phone} href={`tel:${phone}`}>{phone}</a>)}
             </div>
             <p>{t.sinak}</p>
           </motion.div>
