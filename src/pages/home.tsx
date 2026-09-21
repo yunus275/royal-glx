@@ -5,11 +5,15 @@ import OurProducts from "@/components/sections/OurProducts";
 import ContactSection from "@/components/sections/ContactSection";
 import LocationSection from "@/components/sections/LocationSection";
 import Footer from "@/components/layout/Footer";
+import SettingsDrawer from "@/components/layout/SettingsDrawer";
+import { useState } from "react";
 
 export default function Home() {
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
   return (
-    <div className="min-h-screen flex flex-col w-full bg-background text-foreground pb-20 md:pb-0">
-      <Navbar />
+    <div className="royal-app">
+      <Navbar onSettings={() => setSettingsOpen(true)} />
       <main className="flex-grow">
         <Hero />
         <OurProducts />
@@ -17,7 +21,8 @@ export default function Home() {
         <LocationSection />
       </main>
       <Footer />
-      <MobileBottomNav />
+      <MobileBottomNav onSettings={() => setSettingsOpen(true)} />
+      <SettingsDrawer open={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </div>
   );
 }
