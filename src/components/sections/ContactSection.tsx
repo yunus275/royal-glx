@@ -5,7 +5,7 @@ import { useLang } from "@/contexts/language-context";
 const WHATSAPP = "https://wa.me/9647811108936";
 const FACEBOOK = "https://www.facebook.com/people/ROYAL-%D8%B1%D9%88%D9%8A%D8%A7%D9%84/100065036051333/";
 const INSTAGRAM = "https://www.instagram.com/royal.glx/";
-const PHONES = ["07811108936", "07902621447", "07705941268", "07505149156"];
+const PHONES = ["07811108936", "07902621447", "07705941268"];
 
 const contacts = [
   { label: "WhatsApp", href: WHATSAPP, icon: MessageCircle, text: "0781 110 8936 · 0790 262 1447", tone: "whatsapp" },
