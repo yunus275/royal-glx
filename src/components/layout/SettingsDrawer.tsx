@@ -9,32 +9,11 @@ const langOptions: { code: Lang; label: string; native: string }[] = [
   { code: "zh", label: "中文", native: "中" },
 ];
 
-const palettes = [
-  { name: "Gold", hsl: "38 92% 48%", fg: "25 30% 8%", color: "#c5a059" },
-  { name: "Blue", hsl: "210 70% 62%", fg: "220 25% 7%", color: "#73a9ed" },
-  { name: "Rust", hsl: "8 38% 54%", fg: "0 0% 100%", color: "#b56a5e" },
-];
-
-const colorVars = ["--primary", "--accent", "--ring", "--sidebar-primary", "--sidebar-ring", "--chart-1"];
-
-function applyPalette(hsl: string, fg: string) {
-  const root = document.documentElement;
-  colorVars.forEach((name) => root.style.setProperty(name, hsl));
-  root.style.setProperty("--primary-foreground", fg);
-  root.style.setProperty("--accent-foreground", fg);
-  localStorage.setItem("royal-theme-hsl", hsl);
-  localStorage.setItem("royal-theme-fg", fg);
-}
-
 type Props = { open: boolean; onClose: () => void };
 
 export default function SettingsDrawer({ open, onClose }: Props) {
   const { theme, setTheme } = useTheme();
   const { lang, setLang } = useLang();
-  const savedPalette =
-    typeof window !== "undefined"
-      ? localStorage.getItem("royal-theme-hsl") || palettes[0].hsl
-      : palettes[0].hsl;
 
   return (
     <AnimatePresence>
@@ -90,26 +69,6 @@ export default function SettingsDrawer({ open, onClose }: Props) {
                   >
                     <b>{option.native}</b>
                     <span>{option.label}</span>
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-
-            <div className="royal-settings-group">
-              <span className="royal-settings-label">Color palette</span>
-              <div className="royal-settings-swatches">
-                {palettes.map((palette) => (
-                  <motion.button
-                    type="button"
-                    key={palette.name}
-                    className={savedPalette === palette.hsl ? "is-active" : ""}
-                    onClick={() => applyPalette(palette.hsl, palette.fg)}
-                    whileTap={{ scale: 0.9 }}
-                    title={palette.name}
-                    aria-label={palette.name}
-                  >
-                    <span style={{ backgroundColor: palette.color }} />
-                    <small>{palette.name}</small>
                   </motion.button>
                 ))}
               </div>

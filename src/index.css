@@ -295,13 +295,26 @@ body {
   background: var(--royal-black);
 }
 
+.royal-background-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.64;
+  pointer-events: none;
+}
+
 .royal-app {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   overflow-x: hidden;
   color: var(--royal-cream);
   background:
     radial-gradient(circle at 72% 21%, rgba(197, 160, 89, 0.08), transparent 34rem),
-    linear-gradient(115deg, rgba(5, 5, 5, 0.98), rgba(5, 5, 5, 0.86));
+    linear-gradient(115deg, rgba(5, 5, 5, 0.86), rgba(5, 5, 5, 0.68));
 }
 
 .royal-container {
@@ -313,6 +326,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
+  padding: 10px 0;
   border-bottom: 1px solid transparent;
   transition: background 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease, padding 0.3s ease;
 }
@@ -325,16 +339,25 @@ body {
 }
 
 .royal-header-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 84px;
+  min-height: 72px;
   gap: 24px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(10, 10, 10, 0.52);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(14px);
   transition: min-height 0.3s ease;
 }
 
 .royal-header.is-scrolled .royal-header-inner {
   min-height: 66px;
+  border-color: rgba(197, 160, 89, 0.3);
+  background: rgba(5, 5, 5, 0.72);
 }
 
 .royal-brand {
@@ -1697,4 +1720,228 @@ body {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Warm ivory theme: the same editorial system, tuned for daylight. */
+html.light {
+  --royal-gold: #9b6a25;
+  --royal-cream: #2b251d;
+  --royal-muted: #71685b;
+  --royal-faint: #958a79;
+  --royal-black: #f8f5ef;
+}
+
+html.light body {
+  background: #f8f5ef;
+}
+
+html.light .royal-background-canvas {
+  opacity: 0.42;
+}
+
+html.light .royal-app {
+  color: var(--royal-cream);
+  background:
+    radial-gradient(circle at 72% 21%, rgba(197, 160, 89, 0.14), transparent 34rem),
+    linear-gradient(115deg, rgba(248, 245, 239, 0.82), rgba(248, 245, 239, 0.66));
+}
+
+html.light .royal-header {
+  background: rgba(248, 245, 239, 0.52);
+}
+
+html.light .royal-header-inner {
+  border-color: rgba(73, 57, 37, 0.14);
+  background: rgba(255, 252, 247, 0.72);
+  box-shadow: 0 12px 34px rgba(111, 83, 45, 0.08);
+}
+
+html.light .royal-header.is-scrolled {
+  border-bottom-color: rgba(73, 57, 37, 0.12);
+  background: rgba(248, 245, 239, 0.8);
+  box-shadow: 0 16px 40px rgba(111, 83, 45, 0.12);
+}
+
+html.light .royal-header.is-scrolled .royal-header-inner {
+  border-color: rgba(155, 106, 37, 0.28);
+  background: rgba(255, 252, 247, 0.86);
+}
+
+html.light .royal-top-nav > button:not(.royal-settings-trigger),
+html.light .royal-settings-trigger,
+html.light .royal-header-tag {
+  color: #71685b;
+}
+
+html.light .royal-settings-trigger {
+  border-color: rgba(73, 57, 37, 0.18);
+}
+
+html.light .royal-settings-trigger:hover {
+  background: rgba(155, 106, 37, 0.1);
+}
+
+html.light .royal-info-card {
+  border-color: rgba(73, 57, 37, 0.12);
+  background: linear-gradient(110deg, rgba(255, 253, 249, 0.94), rgba(235, 226, 213, 0.92));
+  box-shadow: 0 28px 80px rgba(111, 83, 45, 0.16);
+}
+
+html.light .royal-info-card::before {
+  background: radial-gradient(circle at 85% 25%, rgba(197, 160, 89, 0.2), transparent 42%);
+}
+
+html.light .royal-card-kicker,
+html.light .royal-card-footer span,
+html.light .royal-scroll-hint,
+html.light .royal-section-heading > p,
+html.light .royal-products-heading > span {
+  color: var(--royal-muted);
+}
+
+html.light .royal-card-copy {
+  color: #62594d;
+}
+
+html.light .royal-video-shape {
+  background: #fffdf9;
+  box-shadow: 0 24px 64px rgba(111, 83, 45, 0.22);
+}
+
+html.light .royal-video-shape video {
+  background: #ddd3c3;
+}
+
+html.light .royal-section-heading h2,
+html.light .royal-products-heading h2 {
+  color: var(--royal-cream);
+}
+
+html.light .royal-products-heading,
+html.light .royal-contact-section,
+html.light .royal-footer {
+  border-color: rgba(73, 57, 37, 0.14);
+}
+
+html.light .royal-products-grid,
+html.light .royal-contact-grid,
+html.light .royal-details-grid {
+  border-color: rgba(155, 106, 37, 0.24);
+  background: rgba(155, 106, 37, 0.24);
+}
+
+html.light .royal-product-card,
+html.light .royal-contact-card,
+html.light .royal-detail-card {
+  color: var(--royal-cream);
+  background: rgba(255, 252, 247, 0.84);
+}
+
+html.light .royal-product-card:hover,
+html.light .royal-contact-card:hover {
+  background: rgba(255, 248, 235, 0.96);
+}
+
+html.light .royal-product-image::after {
+  background: linear-gradient(180deg, transparent 52%, rgba(33, 25, 16, 0.58));
+}
+
+html.light .royal-product-image img {
+  filter: saturate(0.78) contrast(1.02) brightness(1.04);
+}
+
+html.light .royal-contact-card-label,
+html.light .royal-detail-card strong,
+html.light .royal-map-meta strong {
+  color: var(--royal-cream);
+}
+
+html.light .royal-contact-card small,
+html.light .royal-detail-card p,
+html.light .royal-map-meta span {
+  color: var(--royal-muted);
+}
+
+html.light .royal-map-app {
+  border-color: rgba(155, 106, 37, 0.3);
+  background: #e7dfd2;
+  box-shadow: 0 25px 70px rgba(111, 83, 45, 0.14);
+}
+
+html.light .royal-map-bar,
+html.light .royal-map-meta {
+  background: rgba(255, 252, 247, 0.9);
+}
+
+html.light .royal-map-bar {
+  border-bottom-color: rgba(73, 57, 37, 0.12);
+}
+
+html.light .royal-map-bar span,
+html.light .royal-map-meta strong {
+  color: var(--royal-cream);
+}
+
+html.light .royal-map-visual {
+  background: #ded4c5;
+}
+
+html.light .royal-map-loading {
+  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.18), transparent 65%), #ded4c5;
+}
+
+html.light .royal-map-badge {
+  color: var(--royal-cream);
+  background: rgba(255, 252, 247, 0.78);
+}
+
+html.light .royal-footer {
+  background: rgba(238, 232, 222, 0.78);
+}
+
+html.light .royal-footer p,
+html.light .royal-footer-bottom,
+html.light .royal-footer-links button {
+  color: var(--royal-muted);
+}
+
+html.light .royal-settings-backdrop {
+  background: rgba(67, 48, 26, 0.28);
+}
+
+html.light .royal-settings-panel {
+  color: var(--royal-cream);
+  border-color: rgba(155, 106, 37, 0.34);
+  background: rgba(255, 252, 247, 0.96);
+  box-shadow: 0 30px 100px rgba(111, 83, 45, 0.24);
+}
+
+html.light .royal-settings-close,
+html.light .royal-settings-options button,
+html.light .royal-settings-appearance button {
+  color: var(--royal-cream);
+  border-color: rgba(73, 57, 37, 0.16);
+}
+
+html.light .royal-settings-options button:hover,
+html.light .royal-settings-appearance button:hover,
+html.light .royal-settings-options button.is-active,
+html.light .royal-settings-appearance button.is-active {
+  color: #fffaf1;
+}
+
+html.light .royal-mobile-nav {
+  border-color: rgba(155, 106, 37, 0.28);
+  background: rgba(255, 252, 247, 0.9);
+  box-shadow: 0 16px 40px rgba(111, 83, 45, 0.18);
+}
+
+html.light .royal-mobile-nav-item {
+  color: var(--royal-muted);
+}
+
+html.light .royal-mobile-nav-indicator {
+  border-color: rgba(155, 106, 37, 0.32);
+  background: linear-gradient(155deg, rgba(197, 160, 89, 0.22), rgba(197, 160, 89, 0.08));
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.12) inset, 0 4px 14px rgba(111, 83, 45, 0.12);
 }

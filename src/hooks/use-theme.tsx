@@ -34,6 +34,10 @@ export function ThemeProvider({
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");
+    ["--primary", "--accent", "--ring", "--sidebar-primary", "--sidebar-ring", "--chart-1",
+      "--primary-foreground", "--accent-foreground"].forEach((name) => root.style.removeProperty(name));
+    localStorage.removeItem("royal-theme-hsl");
+    localStorage.removeItem("royal-theme-fg");
 
     if (theme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")

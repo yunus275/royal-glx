@@ -59,10 +59,6 @@ export default function Hero() {
               preload="metadata"
               aria-label="ROYAL GLX showcase"
             />
-            <span className="royal-video-label">
-              <span />
-              Royal GLX / 01
-            </span>
           </motion.div>
         </div>
 

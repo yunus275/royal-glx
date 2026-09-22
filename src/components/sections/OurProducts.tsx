@@ -1,19 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useLang, type Lang } from "@/contexts/language-context";
+import { useLang } from "@/contexts/language-context";
 
 const images = ["/product1.jpg", "/product2.jpg", "/product3.jpg", "/product4.jpg", "/product5.jpg", "/product6.jpg"];
-const productNames: Record<Lang, string[]> = {
-  en: ["Key duplication", "Android screens", "LED lighting", "Seat upholstery", "Car batteries", "Premium accessories"],
-  ar: ["نسخ المفاتيح", "شاشات أندرويد", "إضاءة LED", "تنجيد المقاعد", "بطاريات السيارات", "إكسسوارات فاخرة"],
-  zh: ["钥匙复制", "安卓车机屏幕", "LED 灯光", "座椅装饰", "汽车电池", "高端配件"],
-};
 
 export default function OurProducts() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const names = productNames[lang];
 
   const prev = () => setLightbox((i) => (i === null ? null : (i - 1 + images.length) % images.length));
   const next = () => setLightbox((i) => (i === null ? null : (i + 1) % images.length));
@@ -48,13 +42,12 @@ export default function OurProducts() {
               transition={{ delay: (index % 3) * 0.08, duration: 0.55 }}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
+              aria-label={`View product image ${index + 1}`}
             >
               <span className="royal-product-image">
-                <img src={src} alt={names[index]} loading="lazy" />
+                <img src={src} alt={`Royal GLX product ${index + 1}`} loading="lazy" />
                 <span className="royal-product-number">0{index + 1}</span>
               </span>
-              <span className="royal-product-name">{names[index]}</span>
-              <span className="royal-product-view">View collection ↗</span>
             </motion.button>
           ))}
         </div>
@@ -66,7 +59,7 @@ export default function OurProducts() {
             className="royal-lightbox"
             role="dialog"
             aria-modal="true"
-            aria-label={names[lightbox]}
+            aria-label={`Product image ${lightbox + 1}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -81,7 +74,7 @@ export default function OurProducts() {
             <motion.img
               key={lightbox}
               src={images[lightbox]}
-              alt={names[lightbox]}
+              alt={`Royal GLX product ${lightbox + 1}`}
               initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.94 }}
@@ -90,7 +83,6 @@ export default function OurProducts() {
             <button type="button" className="royal-lightbox-arrow right" onClick={(event) => { event.stopPropagation(); next(); }} aria-label="Next">
               <ChevronRight />
             </button>
-            <p>{names[lightbox]}</p>
           </motion.div>
         )}
       </AnimatePresence>
