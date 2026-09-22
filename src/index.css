@@ -302,7 +302,7 @@ body {
   display: block;
   width: 100vw;
   height: 100vh;
-  opacity: 0.64;
+  opacity: 0.94;
   pointer-events: none;
 }
 
@@ -314,7 +314,7 @@ body {
   color: var(--royal-cream);
   background:
     radial-gradient(circle at 72% 21%, rgba(197, 160, 89, 0.08), transparent 34rem),
-    linear-gradient(115deg, rgba(5, 5, 5, 0.86), rgba(5, 5, 5, 0.68));
+    linear-gradient(115deg, rgba(5, 5, 5, 0.56), rgba(5, 5, 5, 0.32));
 }
 
 .royal-container {
@@ -1736,14 +1736,14 @@ html.light body {
 }
 
 html.light .royal-background-canvas {
-  opacity: 0.42;
+  opacity: 0.72;
 }
 
 html.light .royal-app {
   color: var(--royal-cream);
   background:
     radial-gradient(circle at 72% 21%, rgba(197, 160, 89, 0.14), transparent 34rem),
-    linear-gradient(115deg, rgba(248, 245, 239, 0.82), rgba(248, 245, 239, 0.66));
+    linear-gradient(115deg, rgba(248, 245, 239, 0.58), rgba(248, 245, 239, 0.34));
 }
 
 html.light .royal-header {

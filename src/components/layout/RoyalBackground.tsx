@@ -77,8 +77,8 @@ export default function RoyalBackground() {
 
     const animate = () => {
       const background = isLight ? "#f8f5ef" : "#050505";
-      const dotColor = isLight ? "rgba(117, 95, 64, 0.24)" : "rgba(255, 255, 255, 0.17)";
-      const lineColor = isLight ? "rgba(117, 95, 64, 0.12)" : "rgba(255, 255, 255, 0.10)";
+      const dotColor = isLight ? "rgba(117, 95, 64, 0.42)" : "rgba(197, 160, 89, 0.25)";
+      const lineColor = isLight ? "rgba(117, 95, 64, 0.20)" : "rgba(197, 160, 89, 0.18)";
       const gold = isLight ? "rgba(155, 106, 37, 0.9)" : "rgba(197, 160, 89, 0.9)";
 
       context.fillStyle = background;
@@ -98,7 +98,7 @@ export default function RoyalBackground() {
           offsetY = (dy / distance) * force * 13;
           color = isLight
             ? `rgba(155, 106, 37, ${0.18 + force * 0.68})`
-            : `rgba(197, 160, 89, ${0.25 + force * 0.75})`;
+                    : `rgba(197, 160, 89, ${0.38 + force * 0.62})`;
         }
 
         ripples.forEach((ripple) => {
@@ -120,7 +120,7 @@ export default function RoyalBackground() {
         context.fill();
       });
 
-      context.lineWidth = 0.45;
+      context.lineWidth = 0.6;
       for (let i = 0; i < particles.length; i += 1) {
         for (let j = i + 1; j < particles.length; j += 1) {
           const first = particles[i];
